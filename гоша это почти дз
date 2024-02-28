@@ -1,0 +1,47 @@
+import pygame
+
+pygame.init()
+win = pygame.display.set_mode((500, 500))
+
+x = 250  # здесь мы задаем ааааа икс вот да
+y = 250  # а здесь ихрег
+x1 = 250
+y1 = 250
+dir = 1
+dir1 = 1
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT]:
+        x -= 3
+    elif keys[pygame.K_RIGHT]:
+        x += 3
+    elif keys[pygame.K_UP]:
+        y -= 3
+    elif keys[pygame.K_DOWN]:
+        y += 3
+    else:
+        x = 250
+        y = 250
+
+    color = (0, 0, 255)
+
+    if (x < 100) or (x > 400):
+        color = (255, 0, 0)
+    else:
+        color = (255, 0, 255)
+
+
+
+
+    win.fill((0, 225, 225))
+
+
+    pygame.draw.circle(win, color, (x, y), radius=40)
+    pygame.display.set_caption("зверобоба")
+
+    pygame.time.delay(10)
+    pygame.display.update()
