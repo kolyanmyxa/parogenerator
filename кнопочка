@@ -1,0 +1,17 @@
+
+class Button():
+    number = 0
+    def click(self):
+        self.number = self.number + 1
+
+    def click_count(self):
+        print(self.number)
+
+
+    def reset(self):
+        self.number = 0
+
+
+spase = Button()
+spase.click()
+spase.click_count()
