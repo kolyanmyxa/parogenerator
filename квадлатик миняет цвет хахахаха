@@ -1,0 +1,59 @@
+
+class Circle:
+
+    def __init__(self, surface, color, radius, x, y, dir):
+        self.surface = surface
+        self.color = color
+        self.radius = radius
+        self.x = x
+        self.y = y
+        self.dir = dir
+
+    def DFIGATICA(self):
+        self.x = self.x + (1 * self.dir)
+        if self.x > 500:
+            self.dir = -1
+        if self.x < 0:
+            self.dir = 1
+
+    def draw(self):
+        pygame.draw.circle(self.surface, self.color, (self.x, self.y), self.radius)
+
+
+w, h = 10, 10
+win.fill((0, 225, 225))
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+    if a < 255:
+        a = a + 1
+    else:
+        a = 0
+    if b < 255:
+        b = b + 1
+    else:
+        b = 0
+    if c > 255:
+        c = c - 1
+    else:
+        c = 255
+    mouse = pygame.mouse.get_pos()
+
+    keys = pygame.mouse.get_pressed()
+
+    if keys[0]:
+        pygame.draw.rect(win, (a, b, c), (mouse[0], mouse[1], w, h))
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_a]:
+        w -= 1
+        h -= 1
+
+
+    if keys[pygame.K_s]:
+        w += 1
+        h += 1
+
+    pygame.time.delay(20)
+    pygame.display.update()
