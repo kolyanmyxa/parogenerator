@@ -1,0 +1,28 @@
+import sqlite3
+
+connect = sqlite3.connect("Odnokly.sqlite")
+cursor = connect.cursor()
+
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS Odnokly(
+id INTEGER PRIMARY KEY,
+name TEXT,
+weight REAL,
+otsenka REAL,
+adekvatnost TEXT)
+''')
+
+cursor.execute('''
+UPDATE Odnokly SET adekvatnost = 1.0 WHERE name = 'elay'
+''')
+
+
+connect.commit()
+
+result = connect.execute('''
+SELECT * FROM Odnokly
+''')
+
+for i in result.fetchall():
+    print(i)
+connect.close()
