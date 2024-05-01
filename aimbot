@@ -1,0 +1,36 @@
+import pygame
+import random
+
+y = 0
+b = (random.randint(70, 430))
+i = (random.randint(70, 430))
+s = (random.randint(70, 430))
+l = (random.randint(70, 430))
+k = (random.randint(70, 430))
+c = (random.randint(70, 430))
+pygame.init()
+win = pygame.display.set_mode((500, 500))
+pos_kr1 = (75, 75)
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+    pos = pygame.mouse.get_pos()
+    nag = pygame.mouse.get_pressed()
+    win.fill((0, 225, 225))
+    kr1 = pygame.draw.circle(win, (255, 255, 0), (b, i), 10)
+    kr2 = pygame.draw.circle(win, (255, 255, 0), (s, l), 10)
+    kr3 = pygame.draw.circle(win, (255, 255, 0), (k, c), 10)
+    if nag[0] and b - 10 < pos[0] < b + 10 and i - 10 < pos[1] < i + 10:
+        print(y)
+        y = y + 1
+    if nag[0] and s - 10 < pos[0] < s + 10 and l - 10 < pos[1] < l + 10:
+        print(y)
+        y = y + 1
+    if nag[0] and k - 10 < pos[0] < k + 10 and c - 10 < pos[1] < c + 10:
+        print(y)
+        y = y + 1
+
+    pygame.time.delay(100)
+    pygame.display.update()
