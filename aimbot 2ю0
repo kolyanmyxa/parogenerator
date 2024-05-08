@@ -1,0 +1,51 @@
+import pygame
+import random
+
+y = 0
+b = (random.randint(70, 500))
+i = (random.randint(70, 500))
+s = (random.randint(70, 500))
+l = (random.randint(70, 500))
+k = (random.randint(70, 500))
+c = (random.randint(70, 500))
+pygame.init()
+win = pygame.display.set_mode((500, 500))
+pos_kr1 = (75, 75)
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+    pos = pygame.mouse.get_pos()
+    ont = pygame.font.Font(None, 100)
+    font = pygame.font.Font(None, 100)
+    text = font.render(str(y), True, (255, 255, 255))
+    font1 = pygame.font.Font(None, 100)
+    text1 = font.render("you WIN", True, (255, 255, 255))
+    nag = pygame.mouse.get_pressed()
+    win.fill((0, 0, 0))
+    kr1 = pygame.draw.circle(win, (255, 0, 0), (b, i), 30)
+    kr2 = pygame.draw.circle(win, (255, 0, 0), (s, l), 30)
+    kr3 = pygame.draw.circle(win, (255, 0, 0), (k, c), 30)
+    if nag[0] and b - 30 < pos[0] < b + 30 and i - 30 < pos[1] < i + 30:
+        print(y)
+        y = y + 1
+        b = (random.randint(70, 500))
+        i = (random.randint(70, 500))
+    if nag[0] and s - 30 < pos[0] < s + 30 and l - 30 < pos[1] < l + 30:
+        print(y)
+        y = y + 1
+        s = (random.randint(70, 500))
+        l = (random.randint(70, 500))
+    if nag[0] and k - 30 < pos[0] < k + 30 and c - 30 < pos[1] < c + 30:
+        print(y)
+        y = y + 1
+        k = (random.randint(70, 500))
+        c = (random.randint(70, 500))
+    if y >= 0:
+        win.blit(text, (10, 10))
+    if y >= 100:
+        win.blit(text1, (100, 100))
+
+    pygame.time.delay(20)
+    pygame.display.update()
